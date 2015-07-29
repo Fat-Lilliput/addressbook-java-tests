@@ -10,7 +10,6 @@ import java.util.Properties;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import com.example.fw.ApplicationManager;
-import static com.example.fw.DataHelper.applyData;
 
 public class TestBase {
 	public static ApplicationManager app;
@@ -20,7 +19,6 @@ public class TestBase {
 		String configFile = System.getProperty("configFile", "application.properties");
 		Properties properties = new Properties();
 		properties.load(new FileReader(new File(configFile)));
-		
 		app = ApplicationManager.getInstance();
 		app.setProperties(properties);
 	  }
@@ -28,7 +26,6 @@ public class TestBase {
 	@AfterClass
 	public void tearDown() throws Exception {
 		app.stop();
-		applyData(app.clearDb);
 	}
 
 }

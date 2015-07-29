@@ -1,7 +1,11 @@
 package com.example.tests;
 
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import com.example.fw.Folders;
+
+import static com.example.fw.DataHelper.applyData;
 import static com.example.fw.FolderHelper.VIA_MENU;
 import static com.example.fw.FolderHelper.VIA_HOTKEYES;
 import static com.example.fw.FolderHelper.VIA_BUTTONS;
@@ -18,6 +22,12 @@ public class FolderCreation extends TestBase {
 	private static String FOLDER_1 = "newfolder2";
 	private static String FOLDER_2 = "newfolder3";
 	private static String FOLDER_SAME = "newfolderN";
+	
+	@BeforeClass
+	public void setUp() throws Exception {
+		new TestBase().setUp();
+		applyData(app.clearDb);
+	}
 	
 	@Test
 	public void testValidFolderCreationViaMenu () {

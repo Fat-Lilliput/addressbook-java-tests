@@ -32,18 +32,12 @@ public class ApplicationManager {
 		currentDb = properties.getProperty("currentDb");
 	}
 	
-	//TODO Make proprties fields private
-	public String getProperties (String key) {
-		return properties.getProperty(key);
-	}
-	
 	public ApplicationManager() {
 	}
 	
 	public void stop() {
 		getApplication().requestClose();
-		getApplication().exitMouse();
-		mainframe = null;
+//		mainframe = null;
 		
 	}
 	
